@@ -1,4 +1,5 @@
 import React,{useEffect,useState} from 'react';
+import { Container,Row,Col } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 const ProductDetail = () => {
   let{id}=useParams();
@@ -15,9 +16,21 @@ setProduct(data);
   
   },[])
   return (
-    <div>
-      상품 상세 페이지
-    </div>
+    <Container>
+     <Row>
+      <Col className="product-img">
+      <img src={product?.img}/>
+      </Col>
+      <Col>
+      <div>
+        {product?.title}
+      </div>
+      <div>
+        {product?.price}
+      </div>
+      </Col>
+     </Row>
+    </Container>
   )
 }
 
